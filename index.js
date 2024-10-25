@@ -100,8 +100,44 @@ function twoSum(arr1,k){
 // ---------------
 // Unique Solution
 // ---------------
-console.log("Output: ", JSON.stringify(twoSum([2, 7, 11, 15], 9)));
+// console.log("Output: ", JSON.stringify(twoSum([2, 7, 11, 15], 9)));
+// console.log("---------------");
+// console.log("Output: ", JSON.stringify(twoSum([3, 3, 11, 15], 6)));
+// console.log("Output: ", JSON.stringify(twoSum([2, 7, 11, 15], 30)));
+// console.log("Output: ", JSON.stringify(twoSum([-1, -2, -3, -4, -5], -8)));
+
+
+
+
+function longestConsecutiveSequence(arr1){
+    let newSet = new Set(arr1);
+    let longestStreak = 0;
+    
+    for(let num of newSet){
+        
+        if(!newSet.has(num - 1)){
+            let currentNum = num;
+            let currentStreak = 1;
+            
+            while(newSet.has(currentNum + 1)){
+                    currentNum += 1;
+                    currentStreak++;
+            }
+           longestStreak = Math.max(longestStreak,currentStreak); 
+        }
+        
+        
+    }
+    return longestStreak;
+    
+}
+
+
+
+// -------------------
+// No Consecutive Sequence
+// -------------------
+console.log("No Consecutive Sequence:");
+console.log("Input: [1, 3, 5]");
+console.log("Output: ", longestConsecutiveSequence([1, 3, 5]));
 console.log("---------------");
-console.log("Output: ", JSON.stringify(twoSum([3, 3, 11, 15], 6)));
-console.log("Output: ", JSON.stringify(twoSum([2, 7, 11, 15], 30)));
-console.log("Output: ", JSON.stringify(twoSum([-1, -2, -3, -4, -5], -8)));
