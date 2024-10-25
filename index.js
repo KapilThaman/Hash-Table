@@ -16,7 +16,7 @@ function itemInCommon(array1, array2) {
 // ---------------
 // One Common Item
 // ---------------
-console.log("Output: ", itemInCommon([1, 3, 5], [2, 4, 5]));
+// console.log("Output: ", itemInCommon([1, 3, 5], [2, 4, 5]));
 
 // First Non Repeating Character
 function firstNonRepeatingChar(str1){
@@ -43,5 +43,38 @@ function firstNonRepeatingChar(str1){
 }
 
 
-console.log("Output: ", JSON.stringify(firstNonRepeatingChar('aabbccdef')));
+// console.log("Output: ", JSON.stringify(firstNonRepeatingChar('aabbccdef')));
+// console.log("---------------");
+
+
+// Get all the anagrams:
+
+function groupAnagrams(arr1){
+    let groupOfAnagrams = new Map();
+    for(let i = 0; i < arr1.length; i++){
+        let everywordArray = arr1[i].split("");
+
+        everywordArray.sort();
+        let sameWordSorted = everywordArray.join("");
+        if(groupOfAnagrams.has(sameWordSorted)){
+            groupOfAnagrams.get(sameWordSorted).push(arr1[i]);
+        }
+        else{
+            groupOfAnagrams.set(sameWordSorted,[arr1[i]]);
+        }
+
+        
+        
+    }
+    console.log(groupOfAnagrams);
+    
+}
+
+
+// ---------------
+// Lowercase Anagrams
+// ---------------
+console.log("Lowercase Anagrams:");
+console.log("Input: ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']");
+console.log("Output: ", JSON.stringify(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat'])));
 console.log("---------------");
