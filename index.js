@@ -72,9 +72,36 @@ function groupAnagrams(arr1){
 
 
 // ---------------
-// Lowercase Anagrams
+// // Lowercase Anagrams
+// // ---------------
+// console.log("Input: ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']");
+// console.log("Output: ", JSON.stringify(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat'])));
+
+function twoSum(arr1,k){
+    let obj = {};
+    let solution=[];
+    
+    for(let i = 0; i < arr1.length; i++ ){
+        let expectedValue = k - arr1[i];
+        
+        if(obj.hasOwnProperty(expectedValue)){
+            solution.push(expectedValue);
+            solution.push(arr1[i]);
+        }
+        else{
+            obj[arr1[i]] = expectedValue;
+        }
+    }
+    console.log(solution);
+}
+
+
+
 // ---------------
-console.log("Lowercase Anagrams:");
-console.log("Input: ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']");
-console.log("Output: ", JSON.stringify(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat'])));
+// Unique Solution
+// ---------------
+console.log("Output: ", JSON.stringify(twoSum([2, 7, 11, 15], 9)));
 console.log("---------------");
+console.log("Output: ", JSON.stringify(twoSum([3, 3, 11, 15], 6)));
+console.log("Output: ", JSON.stringify(twoSum([2, 7, 11, 15], 30)));
+console.log("Output: ", JSON.stringify(twoSum([-1, -2, -3, -4, -5], -8)));
